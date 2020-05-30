@@ -23,9 +23,9 @@ window.addEventListener('load', () => {
     searchInput.addEventListener('keypress', (evt) => 
     {
         if (evt.keyCode == 13)
-        {
+        {   
             console.log('Enter Pressed' + 'Text: ' + searchInput.value)
-            const api = `https://api.weatherstack.com/current?access_key=${key}&query=${searchInput.value}`;
+            const api = `${proxy}http://api.weatherstack.com/current?access_key=${key}&query=${searchInput.value}`;
             callAPI(api)
             searchInput.value = ''
         }
@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
                 long = position.coords.longitude;
                 lat = position.coords.latitude;
 
-                const api = `http://api.weatherstack.com/current?access_key=${key}&query=${lat},${long}`;
+                const api = `${proxy}http://api.weatherstack.com/current?access_key=${key}&query=${lat},${long}`;
 
                 callAPI(api);
             });
@@ -49,7 +49,8 @@ window.addEventListener('load', () => {
 
     getGeoLocation()
     
-    const key = 'ba06bbacfe61a6680680ff23930e763a';
+    const key = '7834fd4e3be2f0300356603b771ee2db';
+    const proxy='https://cors-anywhere.herokuapp.com/';
 
     const callAPI = api => {
         console.log("callAPI clicked.")
