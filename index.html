@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Temperature</title>
@@ -27,14 +27,11 @@
             <div class="col-md">
                 <!--Column 2-->
 
-                <div class="card cardFormat align-items-center" style="width: 18rem;">
+                <div class="card cardFormat ">
                     <div class="card-body">
 
-                        <div class="row card-title">
-                            <div class="search">
-                                <input type="text" autocomplete="off" class="search-box"
-                                    placeholder="Search for a city..." />
-                            </div>
+                        <div class="row card-title" style="margin: auto;">
+                            <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
                         </div>
 
                         <div class="row errorBox">
@@ -49,11 +46,11 @@
 
                         <div class="row locData">
 
-                            <div class="table-responsive-md ">
+                            <div class="table-responsive-md " style="margin: auto; padding-left: 10px; padding-right: 10px;">
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td><span class="defTheme">City: </span></td>
+                                            <td><span class="defTheme" >City: </span></td>
                                             <th><span class="location-name">--</span></th>
                                         </tr>
                                         <tr>
@@ -90,6 +87,10 @@
                                                 <div class="temperature-description defTheme">--</div>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td><span class="defTheme">Humidity: </span></td>
+                                            <td><span class="humidity">--</span></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -97,32 +98,13 @@
 
                         <div class="row">
                             <div class="col text-center">
-                                <button type="button" class="btn btn-outline-primary getLocation"><i
+                                <button type="button" class="btn btn-outline-primary getLocation defTheme" style="border-radius: 50px;"><i
                                         class="fa fa-map-marker"></i> Fetch my location</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row text-center" style="margin-top: 3em;">
-                    <div class="col">
-                        <a class="github-ic" href="https://github.com/chiragkhandhar/" target="_blank">
-                            <i class="fa fa-github fa-lg white-text mr-md-4  fa-2x"> </i>
-                        </a>
-
-                        <a class="linkedin-ic" href="https://www.linkedin.com/in/chirag-khandhar" target="_blank">
-                            <i class="fa fa-linkedin fa-lg white-text mr-md-4  fa-2x"> </i>
-                        </a>
-
-                        <a class="ins-ic" href = "https://www.instagram.com/chiggy_97/" target="_blank">
-                            <i class="fa fa-instagram fa-lg white-text mr-md-4  fa-2x"> </i>
-                        </a>
-
-                        <a class="fb-ic" href="https://www.facebook.com/chirag.khandhar.79" target="_blank">
-                            <i class="fa fa-facebook-f fa-lg white-text mr-md-4  fa-2x"> </i>
-                        </a>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col">
                         <div class="footer-copyright text-center py-3">© 2020

@@ -15,6 +15,7 @@ window.addEventListener('load', () => {
     let locationBtn = document.querySelector(".getLocation");
     let errorBox = document.querySelector(".errorBox");
     let tempPill = document.querySelector(".tempPill");
+    let humidityLab = document.querySelector(".humidity");
     tempPill.textContent = "Fahrenite";
 
     let searchInput=document.querySelector(".search-box");
@@ -50,7 +51,8 @@ window.addEventListener('load', () => {
     getGeoLocation()
     
     const key = '7834fd4e3be2f0300356603b771ee2db';
-    const proxy='https://cors-anywhere.herokuapp.com/';
+    const proxy = ''
+    const proxy1='https://cors-anywhere.herokuapp.com/';
 
     const callAPI = api => {
         console.log("callAPI clicked.")
@@ -61,16 +63,16 @@ window.addEventListener('load', () => {
             .then(data => {
                 errorBox.hidden = true;
                 console.log(data);
-                const { temperature, weather_descriptions, weather_icons } = data.current;
+                const { temperature, weather_descriptions, weather_icons, humidity } = data.current;
                 const { name, region, localtime, timezone_id } = data.location;
 
                 temperatureDegree.textContent = temperature;
+                humidityLab.textContent = humidity + ' %';
                 temperatureDescription.textContent = weather_descriptions;
                 weatherIcon.innerHTML = `<img src=\"${weather_icons}\" width=\"64px\" height=\"64px\">`;
 
 
-                locationName.textContent = name;
-                locationRegion.textContent = region;
+                locationName.textContent = name + ', ' + region;
                 locationLocalTime.textContent = localtime;
                 locationTimeZone.textContent = timezone_id;
 
@@ -79,7 +81,7 @@ window.addEventListener('load', () => {
                     if (degreeSpan.textContent === "C") {
                         temperatureDegree.textContent = Math.floor(Fahrenite);
                         degreeSpan.textContent = "F";
-                        tempPill.textContent = "Celcius";
+                        tempPill.textContent = "Celsius";
                     } else {
                         temperatureDegree.textContent = temperature;
                         degreeSpan.textContent = "C";
