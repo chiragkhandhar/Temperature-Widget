@@ -2,12 +2,12 @@ window.addEventListener('load', () => {
     let long;
     let lat;
     let locationName = document.querySelector(".location-name");
-    let locationRegion = document.querySelector(".location-region");
     let locationTimeZone = document.querySelector(".location-timezone");
     let locationLocalTime = document.querySelector(".location-localtime");
 
     let temperatureDescription = document.querySelector(".temperature-description");
     let temperatureDegree = document.querySelector(".temperature-degree");
+    let feelsLikeTemp = document.querySelector(".feelslike");
 
     let weatherIcon = document.querySelector(".icon");
     let degreeSection = document.querySelector(".degree-section");
@@ -16,6 +16,7 @@ window.addEventListener('load', () => {
     let errorBox = document.querySelector(".errorBox");
     let tempPill = document.querySelector(".tempPill");
     let humidityLab = document.querySelector(".humidity");
+    let cloudcoverLab = document.querySelector(".cloudcover");
     tempPill.textContent = "Fahrenite";
 
     let searchInput=document.querySelector(".search-box");
@@ -63,11 +64,12 @@ window.addEventListener('load', () => {
             .then(data => {
                 errorBox.hidden = true;
                 console.log(data);
-                const { temperature, weather_descriptions, weather_icons, humidity } = data.current;
+                const { temperature, weather_descriptions, weather_icons, humidity, cloudcover } = data.current;
                 const { name, region, localtime, timezone_id } = data.location;
 
                 temperatureDegree.textContent = temperature;
                 humidityLab.textContent = humidity + ' %';
+                cloudcoverLab.textContent = cloudcover + ' %';
                 temperatureDescription.textContent = weather_descriptions;
                 weatherIcon.innerHTML = `<img src=\"${weather_icons}\" width=\"64px\" height=\"64px\">`;
 
