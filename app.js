@@ -9,9 +9,10 @@ let searchInput = document.querySelector(".search-box");
   let temperatureSection = document.querySelector(".temperature");
   let temperatureDescription = document.querySelector(".temperature-description");
   let temperatureDegree = document.querySelector(".temperature-degree");
-  let celsiusTemp, fahreniteTemp;
   let tempSymb = document.querySelector(".temperature-symb");
-  let feelsLikeTemp = document.querySelector(".feelslike");
+  let feelsLikeTemp = document.querySelector(".feelslike-degree");
+  let feelslikeSymb = document.querySelector(".feelslike-symb");
+  let celsiusTemp, fahreniteTemp, feelslikeCelTemp,feelslikeFahTemp;
   let tempFlag = 1; // 1 = Celsius : 0 = Fahrenite
   let weatherIcon = document.querySelector(".icon");
   let locationBtn = document.querySelector(".getLocation");
@@ -32,12 +33,16 @@ let searchInput = document.querySelector(".search-box");
   temperatureSection.addEventListener("click", () => {
     if (tempFlag === 1) {
       temperatureDegree.textContent = Math.floor(fahreniteTemp);
+      feelsLikeTemp.textContent = Math.floor(feelslikeFahTemp);
       tempSymb.textContent = "F";
+      feelslikeSymb.textContent = tempSymb.textContent;
       tempPill.textContent = "Celsius";
       tempFlag = 0;
     } else if (tempFlag === 0) {
       temperatureDegree.textContent = celsiusTemp;
+      feelsLikeTemp.textContent = feelslikeCelTemp;
       tempSymb.textContent = "C";
+      feelslikeSymb.textContent = tempSymb.textContent;
       tempPill.textContent = "Fahrenite";
       tempFlag = 1;
     }
@@ -72,8 +77,11 @@ let searchInput = document.querySelector(".search-box");
         const { temperature, weather_descriptions, weather_icons, humidity, cloudcover, feelslike} = data.current;
         const { name, region, localtime, timezone_id } = data.location;
         celsiusTemp = temperature;
+        feelslikeCelTemp = feelslike;
 
         temperatureDegree.textContent = celsiusTemp;
+        feelsLikeTemp.textContent = feelslikeCelTemp;
+
         humidityLab.textContent = humidity + " %";
         cloudcoverLab.textContent = cloudcover + " %";
         temperatureDescription.textContent = weather_descriptions;
@@ -84,6 +92,7 @@ let searchInput = document.querySelector(".search-box");
         locationTimeZone.textContent = timezone_id;
 
         fahreniteTemp = celsiusTemp * (9 / 5) + 32;
+        feelslikeFahTemp = feelslikeCelTemp * (9/5) + 32;
       })
       .catch((err) => {
         console.log(`Error| ${err}`);
