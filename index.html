@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Temperature</title>
@@ -27,7 +27,7 @@
             <div class="col-md">
                 <!--Column 2-->
 
-                <div class="card cardFormat ">
+                <div class="cardFormat ">
                     <div class="card-body">
 
                         <div class="row card-title" style="margin: auto;">
@@ -50,15 +50,15 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td><span class="defTheme" >City: </span></td>
+                                            <td><span  >Location: </span></td>
                                             <th><span class="location-name">--</span></th>
                                         </tr>
                                         <tr>
-                                            <td><span class="defTheme">Timezone: </span></td>
+                                            <td><span >Timezone: </span></td>
                                             <td><span class="location-timezone">--</span></td>
                                         </tr>
                                         <tr>
-                                            <td><span class="defTheme">Time: </span></td>
+                                            <td><span >Time: </span></td>
                                             <td><span class="location-localtime">--</span></td>
                                         </tr>
                                         <tr>
@@ -79,26 +79,27 @@
                                                     
                                                     <span class="badge badge-pill badge-primary tempPill">Primary</span>
                                                 </div>
-                                            </td>                                    
-                                            
-
+                                            </td> 
+                                                                               
                                         </tr>
                                         <tr>
                                             <td>
                                                 <div class="icon">Icon</div>
-
                                             </td>
                                             <td class="align-middle">
-                                                <div class="temperature-description defTheme">--</div>
+                                                <span>Chance of Rain</span>
+                                                <h5><span class = "precip">--</span></h5>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><span class="defTheme">Humidity: </span></td>
-                                            <td><span class="humidity">--</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="defTheme">Cloud Cover: </span></td>
-                                            <td><span class="cloudcover">--</span></td>
+                                            <td>
+                                                <span >Humidity</span>
+                                                <h5><span class="humidity">--</span></h5>
+                                            </td>
+                                            <td>
+                                                <span >Cloud Cover</span>
+                                                <h5><span class="cloudcover">--</span></h5>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -107,7 +108,7 @@
 
                         <div class="row">
                             <div class="col text-center">
-                                <button type="button" class="btn btn-outline-primary getLocation defTheme" style="border-radius: 50px;"><i
+                                <button type="button" class="btn btn-outline-primary getLocation " style="border-radius: 50px;"><i
                                         class="fa fa-map-marker"></i> Fetch my location</button>
                             </div>
                         </div>

@@ -7,7 +7,6 @@ let searchInput = document.querySelector(".search-box");
   let locationTimeZone = document.querySelector(".location-timezone");
   let locationLocalTime = document.querySelector(".location-localtime");
   let temperatureSection = document.querySelector(".temperature");
-  let temperatureDescription = document.querySelector(".temperature-description");
   let temperatureDegree = document.querySelector(".temperature-degree");
   let tempSymb = document.querySelector(".temperature-symb");
   let feelsLikeTemp = document.querySelector(".feelslike-degree");
@@ -20,11 +19,12 @@ let searchInput = document.querySelector(".search-box");
   tempPill.textContent = "Fahrenite";
   let humidityLab = document.querySelector(".humidity");
   let cloudcoverLab = document.querySelector(".cloudcover");
+  let precipLab = document.querySelector(".precip");
   
   searchInput.addEventListener("keypress", (evt) => {
     if (evt.keyCode == 13) {
       console.log("Enter Pressed" + "Text: " + searchInput.value);
-      const url = `${proxy}http://api.weatherstack.com/current?access_key=${key}&query=${searchInput.value}`;
+      const url = `${proxy}http://api.weatherstack.com/current?access_key=${key}&query=${searchInput.value}&hourly=1`;
       callAPI(url);
       searchInput.value = "";
     }
@@ -54,7 +54,7 @@ let searchInput = document.querySelector(".search-box");
         long = position.coords.longitude;
         lat = position.coords.latitude;
 
-        const url = `${proxy}http://api.weatherstack.com/current?access_key=${key}&query=${lat},${long}`;
+        const url = `${proxy}http://api.weatherstack.com/current?access_key=${key}&query=${lat},${long}&hourly=1`;
         callAPI(url);
       });
     }
@@ -74,7 +74,7 @@ let searchInput = document.querySelector(".search-box");
       })
       .then((data) => {
         errorBox.hidden = true;
-        const { temperature, weather_descriptions, weather_icons, humidity, cloudcover, feelslike} = data.current;
+        const { temperature, weather_descriptions, weather_icons, humidity, cloudcover, feelslike, precip} = data.current;
         const { name, region, localtime, timezone_id } = data.location;
         celsiusTemp = temperature;
         feelslikeCelTemp = feelslike;
@@ -84,8 +84,8 @@ let searchInput = document.querySelector(".search-box");
 
         humidityLab.textContent = humidity + " %";
         cloudcoverLab.textContent = cloudcover + " %";
-        temperatureDescription.textContent = weather_descriptions;
-        weatherIcon.innerHTML = `<img src=\"${weather_icons}\" width=\"64px\" height=\"64px\">`;
+        precipLab.textContent = precip + " %";
+        weatherIcon.innerHTML = `<figure class=\"figure\"><img class=\"figure-img img-fluid rounded\" src=\"${weather_icons}\" width=\"64px\" height=\"64px\"><figcaption class=\"figure-caption text-center\">${weather_descriptions}</figcaption></figure>`;
 
         locationName.textContent = name + ", " + region;
         locationLocalTime.textContent = localtime;
