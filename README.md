@@ -1,8 +1,8 @@
 # Temperature Widget
 
 <p align="center">
-  <a style="text-decoration:none"#" target="_blank">
-   <img src="https://img.shields.io/badge/Under%20Development-grey" alt="version" />
+  <a style="text-decoration:none" href = "https://chiragkhandhar.github.io/Temperature-Widget/" target="_blank">
+   <img src="https://img.shields.io/badge/View%20App-green" alt="version" />
  </a>
 </p>
 
