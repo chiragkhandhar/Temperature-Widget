@@ -63,7 +63,8 @@ let searchInput = document.querySelector(".search-box");
   getGeoLocation();
 
   const key = "7834fd4e3be2f0300356603b771ee2db";
-  const proxy= "https://cors-anywhere.herokuapp.com/";
+  const proxy1= "https://cors-anywhere.herokuapp.com/";
+  const proxy = "";
 
   const callAPI = (api) => {
     console.log("callAPI clicked.");
